@@ -48,7 +48,7 @@ body {
 }
 
 /* Foco visível para navegação por teclado */
-a:focus-visible, button:focus-visible, input:focus-visible {
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 3px solid var(--cor-primaria);
   outline-offset: 2px;
 }
@@ -135,7 +135,10 @@ nav a:hover {
   border: 1px solid var(--cor-borda);
   border-radius: var(--raio-borda);
   padding: 48px 32px;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 28px;
   box-shadow: var(--sombra-suave);
 }
 
@@ -147,14 +150,27 @@ nav a:hover {
 
 .home-banner p {
   color: var(--cor-texto-suave);
-  max-width: 650px;
-  margin: 0 auto 28px;
+  margin-bottom: 28px;
+}
+
+.home-imagem {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--raio-borda);
+}
+
+.aviso-demo {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  margin: 14px 0 24px;
 }
 
 .btn-cta {
   display: inline-block;
   background-color: var(--cor-primaria);
-  color: #fff;
+  color: #242424;
   padding: 14px 28px;
   border-radius: 30px;
   text-decoration: none;
@@ -181,7 +197,7 @@ nav a:hover {
 .card-pet {
   background-color: var(--cor-superficie);
   border-radius: var(--raio-borda);
-  padding: 24px;
+  overflow: hidden;
   border: 1px solid var(--cor-borda);
   box-shadow: var(--sombra-card);
   display: flex;
@@ -189,26 +205,39 @@ nav a:hover {
   justify-content: space-between;
 }
 
-.tag-porte {
-  display: inline-block;
-  background-color: #e3fafc;
-  color: var(--cor-secundaria-hover);
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin: 8px 0 12px;
+.card-pet-foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.card-pet-conteudo {
+  padding: 24px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.pet-detalhes {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
 }
 
 .btn-adotar {
+  display: inline-block;
+  margin-top: auto;
   background-color: var(--cor-secundaria);
-  color: #fff;
+  color: #173a38;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   min-height: 44px;
+  text-decoration: none;
 }
 
 .btn-adotar:hover {
@@ -236,11 +265,13 @@ nav a:hover {
   margin-bottom: 6px;
 }
 
-.grupo-campo input {
+.grupo-campo input, .grupo-campo select {
   padding: 12px 14px;
   border: 1.5px solid var(--cor-borda);
   border-radius: 8px;
   font-size: 1rem;
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto);
 }
 
 .campo-invalido {
@@ -262,7 +293,7 @@ nav a:hover {
 .btn-enviar {
   width: 100%;
   background-color: var(--cor-primaria);
-  color: #fff;
+  color: #242424;
   border: none;
   padding: 14px;
   border-radius: 8px;
@@ -286,6 +317,20 @@ nav a:hover {
   border: 1px solid var(--cor-borda);
 }
 
+.btn-limpar {
+  display: block;
+  margin: 0 0 18px auto;
+  padding: 10px 16px;
+  min-height: 44px;
+  background-color: var(--cor-superficie);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-limpar:hover { border-color: var(--cor-primaria); }
+
 .tabela-adocoes th, .tabela-adocoes td {
   padding: 14px 18px;
   text-align: left;
@@ -297,6 +342,114 @@ nav a:hover {
   font-weight: 600;
 }
 
+.adocoes { overflow-x: auto; }
+
+/* Voluntariado e doações seguem os mesmos cartões e cores das outras páginas. */
+.home-ajuda { margin-top: 34px; }
+
+.atalho-ajuda, .card-apoio, .doacao-painel {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-card);
+}
+
+.atalho-ajuda {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.atalho-ajuda:hover { border-color: var(--cor-primaria); }
+.atalho-ajuda strong { font-size: 1.2rem; }
+.atalho-ajuda span, .card-apoio p { color: var(--cor-texto-suave); }
+
+.card-apoio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 26px;
+}
+
+.card-apoio .btn-adotar { margin-top: auto; }
+
+.modal-voluntario {
+  width: min(100% - 32px, 520px);
+  max-height: min(90vh, 720px);
+  overflow-y: auto;
+  padding: 28px;
+  margin: auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.modal-voluntario::backdrop { background: rgba(0, 0, 0, 0.6); }
+.modal-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.modal-topo h2 { font-size: 1.35rem; }
+
+.btn-fechar {
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  color: var(--cor-texto);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-voluntario .btn-limpar { margin-top: 16px; }
+
+.retorno-acao {
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+  margin-top: 12px;
+  min-height: 24px;
+}
+
+.doacao-painel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 34px;
+  padding: 32px;
+}
+
+.doacao-painel h3 { margin-bottom: 10px; }
+.doacao-painel h4 { margin-top: 24px; }
+.doacao-painel p { color: var(--cor-texto-suave); }
+.valores-doacao { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+
+.valor-doacao {
+  min-height: 48px;
+  padding: 10px 18px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.valor-doacao[aria-pressed="true"] {
+  border-color: var(--cor-secundaria-hover);
+  background: var(--cor-secundaria);
+  color: #173a38;
+}
+
+.pix-copia { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; }
+.pix-copia code { overflow-wrap: anywhere; padding: 12px; border: 1px dashed var(--cor-borda); border-radius: 8px; }
+.pix-copia .btn-adotar { margin: 0; }
+.qr-exemplo { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; }
+.qr-exemplo img { display: block; max-width: 100%; height: auto; border: 1px solid var(--cor-borda); border-radius: 8px; }
+
 /* Rodapé */
 .footer-principal {
   background-color: var(--cor-superficie);
@@ -305,4 +458,19 @@ nav a:hover {
   text-align: center;
   color: var(--cor-texto-suave);
   margin-top: auto;
+}
+
+body.alto-contraste .btn-cta, body.alto-contraste .btn-adotar,
+body.alto-contraste .btn-enviar {
+  color: #000;
+}
+
+@media (max-width: 700px) {
+  .home-banner { grid-template-columns: 1fr; padding: 28px 20px; }
+  .home-banner h1 { font-size: 1.8rem; }
+  .app-conteudo { padding: 24px 16px; }
+  nav ul { flex-wrap: wrap; }
+  nav a { padding: 8px 10px; }
+  .doacao-painel { grid-template-columns: 1fr; padding: 24px; }
+  .modal-voluntario { padding: 20px; }
 }

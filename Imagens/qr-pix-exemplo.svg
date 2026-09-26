@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="titulo descricao">
+  <title id="titulo">QR ilustrativo</title>
+  <desc id="descricao">Ilustração decorativa de QR Code, com DEMO ao centro. Não representa um Pix válido.</desc>
+  <rect width="220" height="220" rx="8" fill="#fff"/>
+  <g fill="#2d3436">
+    <path d="M16 16h54v54H16zm12 12v30h30V28zM150 16h54v54h-54zm12 12v30h30V28zM16 150h54v54H16zm12 12v30h30v-30z" fill-rule="evenodd"/>
+    <rect x="36" y="36" width="14" height="14"/><rect x="170" y="36" width="14" height="14"/><rect x="36" y="170" width="14" height="14"/>
+    <path d="M86 20h12v12H86zm24 0h24v12h-24zM84 46h12v12H84zm24 0h12v12h-12zm24 0h12v12h-12zM84 74h24v12H84zm36 0h12v12h-12zm24 10h24v12h-24zm36 0h12v12h-12zM16 88h12v12H16zm24 0h12v12H40zm24 0h12v12H64zm24 16h12v12H88zm36 0h12v12h-12zm40 12h12v12h-12zm28 0h12v12h-12zM20 120h24v12H20zm36 0h12v12H56zm32 12h12v12H88zm28 0h12v12h-12zm24 8h12v12h-12zm24 0h24v12h-24zM84 164h12v12H84zm24 0h24v12h-24zm36 0h12v12h-12zm28 0h12v12h-12zm20 16h12v12h-12zM84 188h24v12H84zm36 0h12v12h-12zm24 0h24v12h-24z"/>
+  </g>
+  <rect x="69" y="95" width="82" height="34" rx="5" fill="#fff" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="110" y="118" text-anchor="middle" fill="#2d3436" font-family="Arial,sans-serif" font-size="17" font-weight="bold">DEMO</text>
+</svg>
