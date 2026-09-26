@@ -1,0 +1,308 @@
+/* ==========================================================================
+   1. VARIÁVEIS E TEMAS
+   ========================================================================== */
+:root {
+  --cor-primaria: #ff6b6b;
+  --cor-primaria-hover: #e05353;
+  --cor-secundaria: #4ecdc4;
+  --cor-secundaria-hover: #3bb3aa;
+  --cor-sucesso: #28a745;
+  --cor-erro: #e63946;
+  --cor-fundo: #f8f9fa;
+  --cor-superficie: #ffffff;
+  --cor-texto: #2d3436;
+  --cor-texto-suave: #636e72;
+  --cor-borda: #dfe6e9;
+  
+  --fonte-padrao: 'Poppins', system-ui, -apple-system, sans-serif;
+  --sombra-card: 0 10px 20px rgba(0, 0, 0, 0.05);
+  --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.04);
+  --raio-borda: 12px;
+}
+
+/* Modo Alto Contraste para acessibilidade visual */
+body.alto-contraste {
+  --cor-primaria: #ffea00;
+  --cor-secundaria: #00e5ff;
+  --cor-fundo: #000000;
+  --cor-superficie: #121212;
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #e0e0e0;
+  --cor-borda: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte-padrao);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E MENU
+   ========================================================================== */
+.header-principal {
+  background-color: var(--cor-superficie);
+  box-shadow: var(--sombra-suave);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Atende ao critério de acessibilidade target-size (mínimo 44px) */
+nav a {
+  display: inline-block;
+  padding: 10px 16px;
+  min-height: 44px;
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background-color: var(--cor-fundo);
+  color: var(--cor-primaria);
+}
+
+.btn-acessibilidade {
+  background: transparent;
+  border: 1.5px solid var(--cor-borda);
+  color: var(--cor-texto);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 40px;
+}
+
+/* ==========================================================================
+   3. ÁREA DE CONTEÚDO DA SPA
+   ========================================================================== */
+.app-conteudo {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* Seção Home */
+.home-banner {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: var(--sombra-suave);
+}
+
+.home-banner h1 {
+  font-size: 2.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 16px;
+}
+
+.home-banner p {
+  color: var(--cor-texto-suave);
+  max-width: 650px;
+  margin: 0 auto 28px;
+}
+
+.btn-cta {
+  display: inline-block;
+  background-color: var(--cor-primaria);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-cta:hover {
+  background-color: var(--cor-primaria-hover);
+}
+
+/* Seção Projetos (Cards) */
+.secao-titulo {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 1.8rem;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card-pet {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  padding: 24px;
+  border: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tag-porte {
+  display: inline-block;
+  background-color: #e3fafc;
+  color: var(--cor-secundaria-hover);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin: 8px 0 12px;
+}
+
+.btn-adotar {
+  background-color: var(--cor-secundaria);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.btn-adotar:hover {
+  background-color: var(--cor-secundaria-hover);
+}
+
+/* Seção Formulário */
+.card-form {
+  background-color: var(--cor-superficie);
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 36px 32px;
+  border-radius: var(--raio-borda);
+  border: 1px solid var(--cor-borda);
+}
+
+.grupo-campo {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grupo-campo label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.grupo-campo input {
+  padding: 12px 14px;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.campo-invalido {
+  border-color: var(--cor-erro) !important;
+  background-color: #ffeef0;
+}
+
+.campo-valido {
+  border-color: var(--cor-sucesso) !important;
+}
+
+.msg-erro {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  margin-top: 4px;
+  min-height: 18px;
+}
+
+.btn-enviar {
+  width: 100%;
+  background-color: var(--cor-primaria);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedback-sucesso {
+  text-align: center;
+  padding: 24px;
+}
+
+/* Seção Tabela de Candidaturas */
+.tabela-adocoes {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio-borda);
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+}
+
+.tabela-adocoes th, .tabela-adocoes td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.tabela-adocoes th {
+  background-color: var(--cor-fundo);
+  font-weight: 600;
+}
+
+/* Rodapé */
+.footer-principal {
+  background-color: var(--cor-superficie);
+  border-top: 1px solid var(--cor-borda);
+  padding: 24px;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  margin-top: auto;
+}

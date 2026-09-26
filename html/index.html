@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ONG dos Bichinhos - Adote animais resgatados com responsabilidade e transforme vidas.">
+  <title>ONG dos Bichinhos | Adoção Responsável</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho Acessível -->
+  <header class="header-principal">
+    <div class="header-container">
+      <a href="#/" class="logo" aria-label="Página inicial da ONG dos Bichinhos">🐾 ONG dos Bichinhos</a>
+      
+      <nav aria-label="Navegação Principal">
+        <ul>
+          <li><a href="#/">Início</a></li>
+          <li><a href="#/projetos">Nossos Pets</a></li>
+          <li><a href="#/cadastro">Quero Adotar</a></li>
+          <li><a href="#/adocoes">Candidaturas</a></li>
+        </ul>
+      </nav>
+
+      <!-- Recurso de Acessibilidade: Modo Alto Contraste -->
+      <button id="btn-contraste" class="btn-acessibilidade" type="button" aria-label="Alternar modo de alto contraste">
+        🌓 Alto Contraste
+      </button>
+    </div>
+  </header>
+
+  <!-- Ponto de Injeção da SPA -->
+  <main id="app" class="app-conteudo" role="main"></main>
+
+  <!-- Rodapé Institucional -->
+  <footer class="footer-principal">
+    <p>&copy; 2026 ONG dos Bichinhos. Todos os direitos reservados.</p>
+    <p class="footer-subtexto">Transformando abandono em amor verdadeiro.</p>
+  </footer>
+
+  <!-- Bibliotecas e Scripts Modulares -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="../js/main.js"></script>
+</body>
+</html>
